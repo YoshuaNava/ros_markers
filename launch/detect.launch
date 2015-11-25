@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Sets the image source. -->
-  <arg name="image_topic" default="/camera/image_raw" />
+  <arg name="image_topic" default="/v4l/camera/image_raw" />
   <remap from="image" to="$(arg image_topic)" />
   
   <!-- Sets the TF frame of the camera. -->
@@ -30,7 +30,7 @@
     for before it is removed. (-1 uses chilitags default value). -->
   <arg name="persistence" default="-1" />
   
-  <node pkg="ros_markers" type="detect" name="ros_markers">
+  <node pkg="ros_markers" type="detect" name="ros_chilitags">
     <param name="camera_frame_id" type="str" value="$(arg camera_frame_id)" />
     <param name="markers_configuration" type="str" 
       value="$(arg markers_configuration)" />

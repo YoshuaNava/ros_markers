@@ -32,7 +32,8 @@ ChilitagsDetector::ChilitagsDetector(ros::NodeHandle& rosNode,
     }
 #endif
 
-    sub = it.subscribeCamera("image", 1, &ChilitagsDetector::findMarkers, this);
+
+    sub = it.subscribeCamera("/v4l/camera/image_raw", 1, &ChilitagsDetector::findMarkers, this);
 
     if(!configFilename.empty()) {
     	chilitags3d.readTagConfiguration(configFilename, omitOtherTags);
@@ -63,6 +64,7 @@ void ChilitagsDetector::findMarkers(const sensor_msgs::ImageConstPtr& msg,
                                     const sensor_msgs::CameraInfoConstPtr& camerainfo)
 {
     // updating the camera model is cheap if not modified
+//    ROS_INFO("hola0\n");
     cameramodel.fromCameraInfo(camerainfo);
     // publishing uncalibrated images? -> return (according to CameraInfo message documentation,
     // K[0] == 0.0 <=> uncalibrated).

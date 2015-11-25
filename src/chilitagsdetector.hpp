@@ -28,7 +28,7 @@ public:
        Creates an object ready to find the 3D pose of chilitags.
 
  \param rosNode The node which has created the object.
- \param camaera_frame The name of the camera frame for projection onto.
+ \param camera_frame The name of the camera frame for projection onto.
  \param configFilename The name of the YAML configuration file describing rigid
         clusters of tags. The chilitags library is distributed with a sample
         configuration file documenting the expected format.

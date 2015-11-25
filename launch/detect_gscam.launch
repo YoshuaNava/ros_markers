@@ -33,7 +33,7 @@
   <arg name="persistence" default="-1" />
 
   <!-- Start the GSCAM camera driver -->
-  <include file="$(find gscam)/v4l.launch" >
+  <include file="$(find gscam)/examples/v4l.launch" >
       <arg name="DEVICE" value="$(arg camera_device)"/>
   </include>
 
